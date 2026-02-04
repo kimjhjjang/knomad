@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(keybindings-help)",
+      "WebFetch(domain:goddaehee.tistory.com)",
+      "Bash(jq:*)",
+      "Bash(winget install:*)",
+      "Bash(where:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(claude:*)"
+    ]
+  }
+}
