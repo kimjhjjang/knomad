@@ -1,22 +1,43 @@
+import Link from 'next/link';
 import { Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
 
 export function Footer() {
   const linkGroups = [
     {
       title: '서비스',
-      links: ['도시 탐색', '도시 비교', '커뮤니티', '리뷰 작성'],
+      links: [
+        { label: '도시 탐색', href: '/cities' },
+        { label: '도시 비교', href: '/compare' },
+        { label: '커뮤니티', href: '/community' },
+        { label: '리뷰 작성', href: '/reviews/write' },
+      ],
     },
     {
       title: '정보',
-      links: ['공지사항', '이용가이드', '자주 묻는 질문', 'API'],
+      links: [
+        { label: '전체 리뷰', href: '/reviews' },
+        { label: '이용가이드', href: '#' },
+        { label: '자주 묻는 질문', href: '#' },
+        { label: '비밀번호 찾기', href: '/forgot-password' },
+      ],
     },
     {
-      title: '회사',
-      links: ['회사 소개', '채용', '파트너십', '광고 문의'],
+      title: '마이',
+      links: [
+        { label: '마이페이지', href: '/mypage' },
+        { label: '프로필 수정', href: '/profile' },
+        { label: '로그인', href: '/login' },
+        { label: '회원가입', href: '/register' },
+      ],
     },
     {
       title: '법률',
-      links: ['이용약관', '개인정보처리방침', '쿠키 정책', '저작권 정책'],
+      links: [
+        { label: '이용약관', href: '/terms' },
+        { label: '개인정보처리방침', href: '/privacy' },
+        { label: '쿠키 정책', href: '#' },
+        { label: '저작권 정책', href: '#' },
+      ],
     },
   ];
 
@@ -37,13 +58,13 @@ export function Footer() {
               <h3 className="text-white font-semibold mb-4">{group.title}</h3>
               <ul className="space-y-2">
                 {group.links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
                       className="hover:text-white transition-colors text-sm"
                     >
-                      {link}
-                    </a>
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -67,7 +88,7 @@ export function Footer() {
               ))}
             </div>
             <div className="text-sm text-center md:text-right">
-              <p>&copy; 2024 NOMAD KOREA. All rights reserved.</p>
+              <p>&copy; 2025 NOMAD KOREA. All rights reserved.</p>
               <p className="mt-1">Made with ❤️ for Digital Nomads</p>
             </div>
           </div>

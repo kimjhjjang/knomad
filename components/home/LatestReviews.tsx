@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { ReviewCard } from '@/components/ui/ReviewCard';
 import { Button } from '@/components/ui/button';
 import { LATEST_REVIEWS } from '@/constants/reviews';
@@ -14,10 +15,12 @@ export function LatestReviews() {
               노마드들의 생생한 경험을 확인하세요
             </p>
           </div>
-          <Button variant="ghost" className="hidden md:flex items-center gap-2">
-            전체보기
-            <ArrowRight className="w-4 h-4" />
-          </Button>
+          <Link href="/reviews">
+            <Button variant="ghost" className="hidden md:flex items-center gap-2">
+              전체보기
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -27,10 +30,12 @@ export function LatestReviews() {
         </div>
 
         <div className="mt-8 text-center md:hidden">
-          <Button variant="ghost" className="flex items-center gap-2 mx-auto">
-            전체보기
-            <ArrowRight className="w-4 h-4" />
-          </Button>
+          <Link href="/reviews">
+            <Button variant="ghost" className="flex items-center gap-2 mx-auto">
+              전체보기
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

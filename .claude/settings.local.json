@@ -2,12 +2,30 @@
   "permissions": {
     "allow": [
       "Skill(keybindings-help)",
+      "Skill(create-designs)",
       "WebFetch(domain:goddaehee.tistory.com)",
       "Bash(jq:*)",
       "Bash(winget install:*)",
       "Bash(where:*)",
       "Bash(powershell -Command:*)",
-      "Bash(claude:*)"
+      "Bash(claude:*)",
+      "Bash(git:*)",
+      "Bash(pnpm:*)",
+      "Bash(PORT=*)",
+      "Bash(!git worktree add:*)",
+      "Bash(!PORT=*)",
+      "Bash(git worktree:*)",
+      "Bash(set PORT=4001)",
+      "Bash(timeout:*)",
+      "Bash(npm run dev:*)",
+      "Bash(tree:*)",
+      "Bash(npx next build:*)",
+      "Bash(npx tsc:*)",
+      "mcp__context7__resolve-library-id",
+      "Bash(dir:*)",
+      "mcp__context7__query-docs",
+      "Bash(npm install:*)",
+      "Bash(npm run build:*)"
     ]
   }
 }

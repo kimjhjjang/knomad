@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { createClient } from '@/lib/supabase/server';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -13,15 +14,20 @@ export const metadata: Metadata = {
   keywords: '디지털노마드, 노마드, 한국, 도시, 생활비, 코워킹',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   return (
     <html lang="ko">
       <body className={inter.className}>
-        <Navbar />
+        <Navbar user={user} />
         <main>{children}</main>
         <Footer />
       </body>

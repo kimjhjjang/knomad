@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { Star, Wifi } from 'lucide-react';
 import { Card, CardContent } from './card';
 import { Badge } from './badge';
@@ -12,19 +13,21 @@ interface CityCardProps {
 export function CityCard({ city }: CityCardProps) {
   return (
     <Card className="overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer">
-      <div className="relative h-48 w-full">
-        <Image
-          src={city.imageUrl}
-          alt={city.name}
-          fill
-          className="object-cover"
-        />
-        {city.rank && (
-          <div className="absolute top-4 left-4 bg-nomad-primary text-white px-3 py-1 rounded-full font-bold text-sm">
-            #{city.rank}
-          </div>
-        )}
-      </div>
+      <Link href={`/cities/${city.slug}`}>
+        <div className="relative h-48 w-full">
+          <Image
+            src={city.imageUrl}
+            alt={city.name}
+            fill
+            className="object-cover"
+          />
+          {city.rank && (
+            <div className="absolute top-4 left-4 bg-nomad-primary text-white px-3 py-1 rounded-full font-bold text-sm">
+              #{city.rank}
+            </div>
+          )}
+        </div>
+      </Link>
       <CardContent className="p-4">
         <div className="space-y-3">
           <div>
@@ -66,9 +69,18 @@ export function CityCard({ city }: CityCardProps) {
             ))}
           </div>
 
-          <Button className="w-full bg-nomad-primary hover:bg-nomad-primary/90">
-            자세히 보기
-          </Button>
+          <div className="flex gap-2">
+            <Link href={`/cities/${city.slug}`} className="flex-1">
+              <Button className="w-full bg-nomad-primary hover:bg-nomad-primary/90">
+                자세히 보기
+              </Button>
+            </Link>
+            <Link href={`/compare?cities=${city.slug}`}>
+              <Button variant="outline" size="icon" title="비교하기">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 3l4 4-4 4"/><path d="M20 7H4"/><path d="M8 21l-4-4 4-4"/><path d="M4 17h16"/></svg>
+              </Button>
+            </Link>
+          </div>
         </div>
       </CardContent>
     </Card>
